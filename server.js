@@ -1,6 +1,7 @@
 // import modules
 
 import express from 'express'
+import { roommates } from './data/roommate-data.js'
 
 // Create Express app
 
@@ -23,6 +24,13 @@ app.get('/hello', function(req, res) {
 app.get('/home', function(req, res) {
     res.render('home')
 })
+
+app.get('/roommates', function(req, res) {
+  res.render('roommates/index', {
+    roommates: roommates
+  })
+})
+
 // Tell the app to listen on port 3000
 
 app.listen(3000, function() {
